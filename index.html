@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Raptors FC | Schertz, Texas</title>
+  <meta name="description" content="Raptors FC — youth soccer club in Schertz, Texas. View game schedule, locations, teams, coaches, and contact info." />
+
+  <style>
+    :root{
+      --bg: #070a0f;
+      --panel: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.14);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+
+      --teal: #19d3c5;
+      --pink: #ff4fd8;
+      --orange: #ff8a1f;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 0%, rgba(25,211,197,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(255,79,216,.14), transparent 55%),
+        radial-gradient(900px 600px at 60% 100%, rgba(255,138,31,.12), transparent 55%),
+        linear-gradient(180deg, #070a0f 0%, #05070b 100%);
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,15,.62);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    /* Logo images */
+    .logo{
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+      padding: 6px;
+      flex: 0 0 auto;
+    }
+    .logo-hero{
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      object-fit: contain;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      padding: 10px;
+      margin-top: 14px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .4px;
+      line-height: 1.05;
+    }
+    .brand p{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      font-weight: 650;
+      letter-spacing: .2px;
+      font-size: 13px;
+    }
+    .btn:hover{ background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      border: none;
+      background: linear-gradient(135deg, rgba(25,211,197,.95), rgba(255,79,216,.92), rgba(255,138,31,.92));
+      color: #0a0e12;
+      box-shadow: 0 18px 60px rgba(255,79,216,.13);
+    }
+    .btn-primary:hover{ filter: brightness(1.02); }
+
+    /* Hero */
+    .hero{ padding: 56px 0 18px; position:relative; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 28px;
+      align-items:stretch;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 12px;
+      width: fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal), var(--pink), var(--orange));
+      box-shadow: 0 0 18px rgba(25,211,197,.35);
+    }
+    .hero h2{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -.7px;
+    }
+    .hero p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+      margin-top: 18px;
+    }
+    .stats{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .pill{
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    .pill strong{ color: var(--text); font-weight: 750; }
+
+    .hero-card{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(500px 220px at 50% 0%, rgba(25,211,197,.16), transparent 60%),
+        radial-gradient(520px 240px at 100% 35%, rgba(255,79,216,.12), transparent 55%),
+        radial-gradient(520px 240px at 0% 80%, rgba(255,138,31,.10), transparent 55%),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      min-height: 280px;
+    }
+    .card-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .card-title h3{
+      margin:0;
+      font-size: 14px;
+      letter-spacing: .3px;
+      color: rgba(255,255,255,.88);
+    }
+    .badge{
+      font-size: 11px;
+      color: rgba(10,14,18,.9);
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(25,211,197,.95), rgba(255,79,216,.92), rgba(255,138,31,.92));
+    }
+    .mini{ display:grid; grid-template-columns: 1fr; gap: 10px; }
+    .mini-row{
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .mini-row span{
+      display:block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.25;
+    }
+    .mini-row strong{
+      display:block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .mini-row .right{
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* Sections */
+    section{ padding: 28px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .section-head h3{ margin:0; font-size: 18px; letter-spacing: .2px; }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.4;
+      max-width: 70ch;
+    }
+
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .panel{
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,.28);
+      padding: 16px;
+    }
+    .panel h4{ margin: 0 0 8px; font-size: 14px; letter-spacing:.2px; }
+    .panel p{ margin: 0; color: var(--muted); font-size: 13px; line-height:1.6; }
+
+    .col-6{ grid-column: span 6; }
+    .col-4{ grid-column: span 4; }
+    .col-8{ grid-column: span 8; }
+    .col-12{ grid-column: span 12; }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.7;
+    }
+
+    /* Coaches */
+    .coach-card{ display:flex; gap: 14px; align-items:flex-start; }
+    .coach-photo{
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+    }
+    .coach-meta h4{ margin:0 0 4px; font-size: 14px; letter-spacing: .2px; }
+    .coach-meta .role{ color: rgba(255,255,255,.82); font-size: 12.5px; font-weight: 750; margin-bottom: 8px; }
+    .coach-meta .teams{ color: var(--muted); font-size: 12.5px; margin-bottom: 10px; }
+    .coach-links{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .coach-links a{
+      font-size: 12.5px;
+      color: rgba(255,255,255,.85);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .coach-links a:hover{ border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.08); }
+
+    /* Schedule */
+    .toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 12px;
+    }
+    .inputs{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    input, select, textarea{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 13px;
+      outline: none;
+      min-height: 40px;
+    }
+    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.45); }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(25,211,197,.55);
+      box-shadow: 0 0 0 3px rgba(25,211,197,.12);
+    }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+      overflow:hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+    thead th{
+      text-align:left;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      font-weight: 750;
+      letter-spacing: .3px;
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    tbody td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: 13px;
+      color: rgba(255,255,255,.86);
+      vertical-align: top;
+    }
+    tbody tr:hover{ background: rgba(255,255,255,.04); }
+    tbody tr:last-child td{ border-bottom:none; }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.85);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .chip .sw{
+      width:10px; height:10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal), var(--pink), var(--orange));
+    }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 42px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    .footer-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+      .col-6,.col-4,.col-8{ grid-column: span 12; }
+      .brand{ min-width: unset; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <header class="topbar" role="banner">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Raptors FC Home">
+        <img class="logo" src="images/raptors-logo.jpg" alt="Raptors FC logo"
+             onerror="this.style.display='none'; document.getElementById('fallbackMark').style.display='block';" />
+        <div id="fallbackMark" style="display:none;">
+          <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg, rgba(25,211,197,.9), rgba(255,79,216,.85), rgba(255,138,31,.85)); border:1px solid rgba(255,255,255,.18); box-shadow:0 12px 40px rgba(0,0,0,.45);"></div>
+        </div>
+
+        <div>
+          <h1 id="clubName">Raptors FC</h1>
+          <p id="clubLocation">Schertz, Texas</p>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#teams">Teams</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" id="ctaBtn" href="#schedule" title="Jump to game schedule">Game Schedule</a>
+        <a class="btn" href="/admin/" title="Admin login (Netlify)">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero" role="main">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="tag"><span class="dot" aria-hidden="true"></span> Youth Soccer • Schertz, TX</div>
+
+        <img class="logo-hero" src="images/raptors-logo.jpg" alt="Raptors FC logo" onerror="this.style.display='none';" />
+
+        <h2>Raptors FC — fast, focused, and built for development.</h2>
+        <p>
+          A community-first soccer club helping players grow confidence, skill, and love for the game.
+          Check match details, field locations, and updates below.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#schedule" id="ctaBtn2">View Game Schedule</a>
+          <a class="btn" href="#coaches">Meet the Coaches</a>
+          <a class="btn" href="#contact">Contact the Club</a>
+        </div>
+
+        <div class="stats" aria-label="Quick facts">
+          <div class="pill"><strong>Colors:</strong> Black • Teal • Pink • Orange</div>
+          <div class="pill"><strong>Focus:</strong> Player development + teamwork</div>
+          <div class="pill"><strong>Home base:</strong> Schertz / NE San Antonio</div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Next matches">
+        <div class="card-title">
+          <h3>Upcoming Matches</h3>
+          <span class="badge">Season</span>
+        </div>
+
+        <div class="mini" id="nextMatches"></div>
+        <a class="btn" href="#schedule">See full schedule →</a>
+      </aside>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>About Raptors FC</h3>
+          <p>Built in Schertz with a simple mission: develop players and great teammates.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel col-8">
+          <h4>Club mission</h4>
+          <p>
+            We combine structured training, positive coaching, and competitive play to help athletes
+            learn the game the right way. We emphasize effort, respect, and smart soccer.
+          </p>
+          <ul class="list">
+            <li>Age-appropriate training sessions</li>
+            <li>Clear development pathway for players</li>
+            <li>Supportive environment for families</li>
+          </ul>
+        </div>
+        <div class="panel col-4">
+          <h4>Club values</h4>
+          <ul class="list">
+            <li>Work ethic</li>
+            <li>Coachability</li>
+            <li>Team-first mentality</li>
+            <li>Sportsmanship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teams -->
+  <section id="teams">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>Teams & Programs</h3>
+          <p>We can tailor this section once you list your actual age groups/teams.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel col-4">
+          <h4>Youth Academy (U6–U8)</h4>
+          <p>Fun, fundamentals, and confidence on the ball.</p>
+        </div>
+        <div class="panel col-4">
+          <h4>Competitive (U9–U12)</h4>
+          <p>Skill-building, team shape, and match IQ.</p>
+        </div>
+        <div class="panel col-4">
+          <h4>Select (U13+)</h4>
+          <p>Higher intensity training and competitive league play.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coaches -->
+  <section id="coaches">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>Coaches</h3>
+          <p>Editable via the admin login when using Netlify + Decap CMS.</p>
+        </div>
+      </div>
+
+      <div class="grid" id="coachesGrid">
+        <!-- Filled by JS from /content/coaches.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>Game Schedule</h3>
+          <p>Filter by team and search by opponent or location.</p>
+        </div>
+      </div>
+
+      <div class="toolbar" role="region" aria-label="Schedule filters">
+        <div class="inputs">
+          <select id="teamFilter" aria-label="Filter by team">
+            <option value="all">All teams</option>
+          </select>
+          <input id="searchBox" type="search" placeholder="Search opponent / location..." aria-label="Search schedule" />
+        </div>
+        <div class="inputs">
+          <button class="btn" id="copySchedule">Copy schedule (text)</button>
+          <button class="btn btn-primary" id="downloadIcs">Download calendar (.ics)</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <table aria-label="Raptors FC schedule table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Date</th>
+              <th style="width: 90px;">Time</th>
+              <th style="width: 140px;">Team</th>
+              <th>Match</th>
+              <th style="width: 220px;">Location</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+
+      <p style="color: var(--muted); font-size: 12.5px; margin-top: 10px;">
+        Admin edits update <code style="color: rgba(255,255,255,.85)">/content/schedule.json</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>Locations</h3>
+          <p>Add your primary fields and link to Google Maps for easy directions.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel col-6">
+          <h4>Primary Field</h4>
+          <p>
+            Update this with your actual field name and address.
+          </p>
+          <ul class="list">
+            <li><strong>Field:</strong> Schertz Soccer Complex (Example)</li>
+            <li><strong>Address:</strong> 000 Example Rd, Schertz, TX</li>
+            <li><a class="btn" style="margin-top:10px;" href="https://maps.google.com/?q=Schertz%2C%20TX" target="_blank" rel="noreferrer">Open in Maps</a></li>
+          </ul>
+        </div>
+        <div class="panel col-6">
+          <h4>Secondary Field</h4>
+          <p>
+            Add a second location for away games or training.
+          </p>
+          <ul class="list">
+            <li><strong>Field:</strong> NE San Antonio Park (Example)</li>
+            <li><strong>Address:</strong> 000 Example St, San Antonio, TX</li>
+            <li><a class="btn" style="margin-top:10px;" href="https://maps.google.com/?q=San%20Antonio%2C%20TX" target="_blank" rel="noreferrer">Open in Maps</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h3>Contact</h3>
+          <p>This pulls from <code style="color: rgba(255,255,255,.85)">/content/settings.json</code>.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel col-6">
+          <h4>Get in touch</h4>
+          <p style="margin-bottom: 10px;">
+            Email: <a id="contactEmailLink" href="mailto:raptorsfc@example.com">raptorsfc@example.com</a><br/>
+            Phone: <a id="contactPhoneLink" href="tel:+12105550123">(210) 555-0123</a>
+          </p>
+        </div>
+
+        <div class="panel col-6">
+          <h4>Quick message</h4>
+          <form id="contactForm">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <input name="name" placeholder="Your name" required />
+              <input name="email" type="email" placeholder="Your email" required />
+            </div>
+            <input name="subject" placeholder="Subject" style="margin-top:10px; width:100%;" required />
+            <textarea name="message" placeholder="Message" rows="4" style="margin-top:10px; width:100%;" required></textarea>
+            <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+              <button class="btn btn-primary" type="submit">Send</button>
+              <button class="btn" type="reset">Reset</button>
+            </div>
+          </form>
+          <p style="color: var(--muted); font-size: 12.5px; margin-top: 10px;">
+            This opens your mail app. If you want “send without mail app,” tell me and I’ll wire Formspree.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="footer-row">
+        <div>
+          <p style="margin:0;">
+            © <span id="year"></span> <span id="clubName2">Raptors FC</span> • <span id="clubLocation2">Schertz, Texas</span>
+          </p>
+        </div>
+        <div>
+          <p style="margin:0;">
+            Hosted on Netlify for admin login • Content stored in GitHub
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Editable data loads from these files (Decap CMS edits them) =====
+    const PATH_SETTINGS = "/content/settings.json";
+    const PATH_COACHES  = "/content/coaches.json";
+    const PATH_SCHEDULE = "/content/schedule.json";
+
+    // Globals for rendering/filtering
+    let SETTINGS = null;
+    let COACHES = [];
+    let GAMES = [];
+
+    const byId = (id) => document.getElementById(id);
+
+    async function loadJSON(path) {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to load " + path + " (" + res.status + ")");
+      return await res.json();
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDate(iso) {
+      const d = new Date(iso + "T00:00:00");
+      return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "2-digit", year: "numeric" });
+    }
+
+    function upcomingGames(list, count=3) {
+      const now = new Date();
+      return list
+        .map(g => ({...g, dt: new Date(g.date + "T" + (g.time || "00:00") + ":00")}))
+        .filter(g => !isNaN(g.dt) && g.dt >= new Date(now.getTime() - 6*60*60*1000))
+        .sort((a,b) => a.dt - b.dt)
+        .slice(0, count);
+    }
+
+    function renderNextMatches(list) {
+      const next = upcomingGames(list, 3);
+      const box = byId("nextMatches");
+      if (!box) return;
+      box.innerHTML = "";
+
+      if (next.length === 0) {
+        box.innerHTML = `
+          <div class="mini-row">
+            <div>
+              <strong>No upcoming matches</strong>
+              <span>Add your season schedule in the admin panel.</span>
+            </div>
+            <div class="right">—</div>
+          </div>`;
+        return;
+      }
+
+      next.forEach(g => {
+        const row = document.createElement("div");
+        row.className = "mini-row";
+        row.innerHTML = `
+          <div>
+            <strong>${escapeHtml(g.team)} • ${escapeHtml(g.homeAway)} vs ${escapeHtml(g.opponent)}</strong>
+            <span>${formatDate(g.date)} • ${escapeHtml(g.time || "")} • ${escapeHtml(g.location)}</span>
+          </div>
+          <div class="right">Next</div>
+        `;
+        box.appendChild(row);
+      });
+    }
+
+    function buildTeamFilter(games) {
+      const sel = byId("teamFilter");
+      if (!sel) return;
+      sel.innerHTML = `<option value="all">All teams</option>`;
+
+      const teams = Array.from(new Set((games || []).map(g => g.team))).sort();
+      teams.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        sel.appendChild(opt);
+      });
+    }
+
+    function getFilteredGames() {
+      const team = byId("teamFilter")?.value || "all";
+      const q = (byId("searchBox")?.value || "").trim().toLowerCase();
+
+      return (GAMES || [])
+        .slice()
+        .sort((a,b) => (a.date + (a.time||"")).localeCompare(b.date + (b.time||"")))
+        .filter(g => team === "all" ? true : g.team === team)
+        .filter(g => {
+          if (!q) return true;
+          const hay = `${g.team} ${g.opponent} ${g.homeAway} ${g.location} ${g.date} ${g.time}`.toLowerCase();
+          return hay.includes(q);
+        });
+    }
+
+    function renderSchedule() {
+      const tbody = byId("scheduleBody");
+      if (!tbody) return;
+
+      const filtered = getFilteredGames();
+      tbody.innerHTML = "";
+
+      if (filtered.length === 0) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 5;
+        td.style.color = "rgba(255,255,255,.75)";
+        td.style.padding = "18px 12px";
+        td.textContent = "No matches found. Try changing filters or search.";
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+        renderNextMatches(GAMES);
+        return;
+      }
+
+      filtered.forEach(g => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${formatDate(g.date)}</td>
+          <td>${escapeHtml(g.time || "")}</td>
+          <td><span class="chip"><span class="sw"></span>${escapeHtml(g.team)}</span></td>
+          <td>${escapeHtml(g.homeAway)} vs <strong>${escapeHtml(g.opponent)}</strong></td>
+          <td>${escapeHtml(g.location)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      renderNextMatches(filtered);
+    }
+
+    function renderCoaches(coaches) {
+      const grid = byId("coachesGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      const list = coaches || [];
+      if (!list.length) {
+        const empty = document.createElement("div");
+        empty.className = "panel col-12";
+        empty.innerHTML = `<p>No coaches listed yet. Add them in the admin panel.</p>`;
+        grid.appendChild(empty);
+        return;
+      }
+
+      list.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "panel col-6";
+
+        const photoHtml = c.photo
+          ? `<img class="coach-photo" src="${escapeHtml(c.photo)}" alt="${escapeHtml(c.name)} photo"
+                 onerror="this.style.display='none';" />`
+          : `<div class="coach-photo" aria-hidden="true"
+                  style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-weight:800;">
+               ${escapeHtml((c.name || "C").trim().charAt(0).toUpperCase())}
+             </div>`;
+
+        const emailBtn = c.email ? `<a href="mailto:${encodeURIComponent(c.email)}">Email</a>` : "";
+        const phoneBtn = c.phone ? `<a href="tel:${escapeHtml(c.phone).replaceAll(/[^0-9+]/g,'')}">Call</a>` : "";
+
+        card.innerHTML = `
+          <div class="coach-card">
+            ${photoHtml}
+            <div class="coach-meta">
+              <h4>${escapeHtml(c.name || "")}</h4>
+              <div class="role">${escapeHtml(c.role || "")}</div>
+              <div class="teams"><strong>Teams:</strong> ${escapeHtml(c.teams || "")}</div>
+              <p>${escapeHtml(c.bio || "")}</p>
+              <div class="coach-links">${emailBtn}${phoneBtn}</div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function applySettings(s) {
+      if (!s) return;
+
+      // Header/footer names
+      if (byId("clubName")) byId("clubName").textContent = s.clubName || "Raptors FC";
+      if (byId("clubLocation")) byId("clubLocation").textContent = s.location || "Schertz, Texas";
+      if (byId("clubName2")) byId("clubName2").textContent = s.clubName || "Raptors FC";
+      if (byId("clubLocation2")) byId("clubLocation2").textContent = s.location || "Schertz, Texas";
+
+      // CTA label
+      const cta = s.ctaLabel || "Game Schedule";
+      if (byId("ctaBtn")) byId("ctaBtn").textContent = cta;
+      if (byId("ctaBtn2")) byId("ctaBtn2").textContent = "View " + cta;
+
+      // Contact
+      const email = s.email || "raptorsfc@example.com";
+      const phone = s.phone || "";
+      const emailLink = byId("contactEmailLink");
+      if (emailLink) {
+        emailLink.textContent = email;
+        emailLink.href = "mailto:" + encodeURIComponent(email);
+      }
+      const phoneLink = byId("contactPhoneLink");
+      if (phoneLink) {
+        if (phone) {
+          phoneLink.textContent = phone;
+          phoneLink.href = "tel:" + phone.replaceAll(/[^0-9+]/g,'');
+          phoneLink.style.display = "";
+        } else {
+          phoneLink.style.display = "none";
+        }
+      }
+    }
+
+    // Copy schedule (text)
+    function scheduleAsText(list) {
+      const sorted = list.slice().sort((a,b) => (a.date + (a.time||"")).localeCompare(b.date + (b.time||"")));
+      return sorted.map(g => `${formatDate(g.date)} ${g.time || ""} — ${g.team} — ${g.homeAway} vs ${g.opponent} @ ${g.location}`).join("\n");
+    }
+
+    function download(filename, text) {
+      const el = document.createElement("a");
+      el.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+      el.setAttribute("download", filename);
+      document.body.appendChild(el);
+      el.click();
+      document.body.removeChild(el);
+    }
+
+    function escapeICSText(s) {
+      return String(s ?? "")
+        .replaceAll("\\", "\\\\")
+        .replaceAll(",", "\\,")
+        .replaceAll(";", "\\;")
+        .replaceAll("\n", "\\n");
+    }
+
+    function buildICS(events) {
+      const pad = (n) => String(n).padStart(2, "0");
+      const dtstamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+      const lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Raptors FC//Schedule//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH"
+      ];
+
+      events.forEach((g, idx) => {
+        const [hh, mm] = (g.time || "00:00").split(":");
+        const start = new Date(g.date + "T" + pad(hh) + ":" + pad(mm) + ":00");
+        const end = new Date(start.getTime() + 60 * 60 * 1000);
+
+        const toICSLocal = (d) => {
+          const y = d.getFullYear();
+          const m = pad(d.getMonth() + 1);
+          const day = pad(d.getDate());
+          const h = pad(d.getHours());
+          const min = pad(d.getMinutes());
+          const s = pad(d.getSeconds());
+          return `${y}${m}${day}T${h}${min}${s}`;
+        };
+
+        const summary = `${g.team}: ${g.homeAway} vs ${g.opponent}`;
+        const desc = `Raptors FC match\\n${g.homeAway} vs ${g.opponent}\\nLocation: ${g.location}`;
+        const uid = `raptorsfc-${g.date}-${g.time}-${idx}@raptorsfc.local`;
+
+        lines.push(
+          "BEGIN:VEVENT",
+          `UID:${uid}`,
+          `DTSTAMP:${dtstamp}`,
+          `DTSTART:${toICSLocal(start)}`,
+          `DTEND:${toICSLocal(end)}`,
+          `SUMMARY:${escapeICSText(summary)}`,
+          `LOCATION:${escapeICSText(g.location)}`,
+          `DESCRIPTION:${escapeICSText(desc)}`,
+          "END:VEVENT"
+        );
+      });
+
+      lines.push("END:VCALENDAR");
+      return lines.join("\r\n");
+    }
+
+    // Contact form: mailto fallback using SETTINGS email
+    function setupContactForm() {
+      const form = byId("contactForm");
+      if (!form) return;
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = data.get("name");
+        const email = data.get("email");
+        const subject = data.get("subject");
+        const message = data.get("message");
+
+        const to = (SETTINGS?.email) || "raptorsfc@example.com";
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+      });
+    }
+
+    async function initEditableSite() {
+      // Load editable content
+      SETTINGS = await loadJSON(PATH_SETTINGS);
+      const coachesData = await loadJSON(PATH_COACHES);
+      const scheduleData = await loadJSON(PATH_SCHEDULE);
+
+      COACHES = (coachesData && Array.isArray(coachesData.coaches)) ? coachesData.coaches : [];
+      GAMES = (scheduleData && Array.isArray(scheduleData.games)) ? scheduleData.games : [];
+
+      // Apply + render
+      applySettings(SETTINGS);
+      renderCoaches(COACHES);
+      buildTeamFilter(GAMES);
+      renderSchedule();
+      renderNextMatches(GAMES);
+
+      // Events
+      byId("teamFilter")?.addEventListener("change", renderSchedule);
+      byId("searchBox")?.addEventListener("input", renderSchedule);
+
+      byId("copySchedule")?.addEventListener("click", async () => {
+        const list = getFilteredGames();
+        const txt = scheduleAsText(list);
+        try {
+          await navigator.clipboard.writeText(txt);
+          alert("Copied schedule to clipboard!");
+        } catch {
+          download("raptorsfc-schedule.txt", txt);
+          alert("Clipboard blocked. Downloaded as text instead.");
+        }
+      });
+
+      byId("downloadIcs")?.addEventListener("click", () => {
+        const list = getFilteredGames();
+        const ics = buildICS(list);
+        download("raptorsfc-schedule.ics", ics);
+      });
+
+      // Footer year
+      byId("year").textContent = new Date().getFullYear();
+
+      // Contact form
+      setupContactForm();
+    }
+
+    initEditableSite().catch(err => {
+      console.error(err);
+      alert("Site content failed to load. Make sure /content/settings.json, /content/coaches.json, and /content/schedule.json exist.");
+    });
+  </script>
+</body>
+</html>

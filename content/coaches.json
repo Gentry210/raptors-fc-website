@@ -1,0 +1,13 @@
+{
+  "coaches": [
+    {
+      "name": "Coach David Gentry",
+      "role": "Head Coach",
+      "teams": "Raptors FC",
+      "bio": "Dedicated to player development, confidence, and a team-first culture.",
+      "email": "David.gentry@jci.com",
+      "phone": "2104527026",
+      "photo": "/images/coach-photo.png"
+    }
+  ]
+}

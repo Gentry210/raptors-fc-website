@@ -1,0 +1,53 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    files:
+      - name: "settings"
+        label: "Club Settings"
+        file: "content/settings.json"
+        fields:
+          - { label: "Club Name", name: "clubName", widget: "string" }
+          - { label: "City/State", name: "location", widget: "string" }
+          - { label: "Contact Email", name: "email", widget: "string" }
+          - { label: "Contact Phone", name: "phone", widget: "string", required: false }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string", default: "Game Schedule" }
+
+      - name: "coaches"
+        label: "Coaches"
+        file: "content/coaches.json"
+        fields:
+          - label: "Coaches List"
+            name: "coaches"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role/Title", name: "role", widget: "string" }
+              - { label: "Teams", name: "teams", widget: "string", required: false }
+              - { label: "Bio", name: "bio", widget: "text", required: false }
+              - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Phone", name: "phone", widget: "string", required: false }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+
+      - name: "schedule"
+        label: "Schedule"
+        file: "content/schedule.json"
+        fields:
+          - label: "Games"
+            name: "games"
+            widget: "list"
+            fields:
+              - { label: "Date (YYYY-MM-DD)", name: "date", widget: "string" }
+              - { label: "Time (HH:MM)", name: "time", widget: "string", required: false }
+              - { label: "Team", name: "team", widget: "string" }
+              - { label: "Opponent", name: "opponent", widget: "string" }
+              - { label: "Home/Away", name: "homeAway", widget: "select", options: ["Home", "Away"] }
+              - { label: "Location", name: "location", widget: "string" }
